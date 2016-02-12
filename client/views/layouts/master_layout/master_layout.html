@@ -1,0 +1,49 @@
+<template name="MasterLayout">
+    <div class="container-fluid">
+		<!-- <table class="table table-bordered"> -->
+		<table  width="100%">
+		    <tbody>
+		        <tr>
+                            <td>
+                            <div style="background-color:white;border-radius:5px;padding:20px;margin: 10px!important;width:300px;">
+                                {{> MedBookNavigator }}
+                            </div>
+                            </td>
+		            <td>
+		            	<div style="float:left">
+						MedBook Workbench
+					    </div>
+			{{> studySelectorTemplate}}
+			{{> contrastSelectorTemplate}}
+
+		<div style="float:left">
+			<button class="nuc" title="reset session">Reset</button>
+		</div>
+					{{#if currentUser}}
+					<!-- User: {{ currentUser.username }} Member of: {{member}} --> <button class="logout btn" style="float:right" title="User {{ currentUser.username }} is a member of {{member}}.">Logout</button>
+					{{else}}
+					{{> loginButtons}}
+					{{/if}}
+				</td>
+		        </tr>
+		    </tbody>
+		</table>
+		{{#if currentUser}}
+		<ul class="nav nav-tabs" role="tablist">
+			<li class="{{isActiveRoute regex='studies.index'}}"><a href="{{pathFor 'StudiesIndex' query=currentQueryString}}">Home</a></li>
+			<li class="{{isActiveRoute regex='cohort'}}"><a href="{{pathFor 'Cohort' query=currentQueryString}}">Cohort</a></li>
+			<li class="{{isActiveRoute regex='patient'}}"><a href="{{pathFor 'PatientIndex' query=currentQueryString}}">Patient</a></li>
+			<li class="{{isActiveRoute regex='scv'}}"><a href="{{pathFor 'Scv' query=currentQueryString}}">Differential Analysis</a></li>
+			<li class="{{isActiveRoute regex='genes'}}"><a href="{{pathFor 'Genes' query=currentQueryString}}">Gene</a></li>
+			<li class="{{isActiveRoute regex='pathways'}}"><a href="{{pathFor 'Pathways' query=currentQueryString}}">Pathways</a></li>
+			<li class="{{isActiveRoute regex='clinical.events.index'}}"><a href="{{pathFor 'ClinicalEventsIndex' query=currentQueryString}}">Clinical</a></li>
+			<li class="{{isActiveRoute regex='shell'}} shell-tab"><a href="{{pathFor 'Shell' query=currentQueryString}}">Tools</a></li>
+			<li class="{{isActiveRoute regex='drugs'}}"><a href="{{pathFor 'Drugs' query=currentQueryString}}">Drugs</a></li>
+			<li class="{{isActiveRoute regex='gene_sets'}}"><a href="{{pathFor 'GeneSetsIndex' query=currentQueryString}}">Gene Sets</a></li>
+		</ul>
+		<div class="tab-content">
+			{{> yield}}
+		</div>
+		{{/if}}
+    </div>
+</template>

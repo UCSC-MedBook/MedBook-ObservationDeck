@@ -1,0 +1,22 @@
+
+<template name="SignatureIndex">
+<table class="table table-bordered">
+	<caption>Signatures</caption>
+
+    <thead>
+        <tr>
+            <th>name</th>
+			<th>version</th>
+        </tr>
+    </thead>
+    <tbody>
+		{{#each signature}}
+        <tr>
+            <td>{{name}}</td>
+			<td>{{version}}</td>
+        </tr>
+		{{/each}}
+    </tbody>
+</table>  
+</template>
+

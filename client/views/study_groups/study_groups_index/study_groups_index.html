@@ -1,0 +1,17 @@
+
+<template name="StudyGroupsIndex">
+
+	 <select id="group" name="zebra" class="span1-12">
+		{{#each study_groups}}
+		 	<option {{isSelected}} value="{{study}}">
+			{{group}}
+		</option>
+		{{else}}
+		<li class="study-item empty">
+			No groups yet.
+		</li>
+		{{/each}}
+		
+</select>
+</template>
+
