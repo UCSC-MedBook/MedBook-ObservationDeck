@@ -1,4 +1,5 @@
-SampleGroups = new Meteor.Collection('sample_groups');
+// assigned in primary collections ?
+// SampleGroups = new Meteor.Collection('sample_groups');
 
 /*
  * Add query methods like this:
