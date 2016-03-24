@@ -3,27 +3,17 @@
 /*****************************************************************************/
 Meteor.startup(function() {
     console.log('client/app.js startup begin');
-    Meteor.subscribe('studies_index');
-    Meteor.subscribe('study_groups_index');
-    Meteor.subscribe('clinical_events_index');
-    Meteor.subscribe('contrast');
-    Meteor.subscribe('images');
-    Meteor.subscribe('blobs');
-    var job_ret = Meteor.subscribe('jobs', function() {
-        console.log("jobs subcribe error", Meteor.Error);
-      },
-      function(){
-        console.log("jobs subcribe ready ");
-      }
-    );
-    console.log('jobs subscribe returns ', job_ret);
-    // Meteor.subscribe('expression2');
-    Meteor.subscribe('results');
-    // Meteor.subscribe('geneSets');
-    Meteor.subscribe('genes');
-    Meteor.subscribe('studies');
 
-    //Meteor.subscribe('signature_index');
+    // TODO studies_index should be moved to study_contrast_selector
+    Meteor.subscribe('studies_index');
+    // Meteor.subscribe('study_groups_index');
+
+    // TODO clinical_events_index should be moved to samplePieCharts
+    Meteor.subscribe('clinical_events_index');
+
+    // TODO contrast should be moved to study_contrast_selector
+    Meteor.subscribe('contrast');
+
     Session.set('selectedContrast', '');
     console.log('/client/app.js startup complete');
 });
