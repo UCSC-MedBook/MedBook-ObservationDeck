@@ -1,24 +1,6 @@
 <template name="ClinicalEventsIndex">
-<div id="clinical">
-	<div id='ClinicalEventsIndex_OD_Div'>
-		This space reserved for an Observation Deck.
-	</div>
-
-	<!-- <table border = 1>
-	{{#each clinical_events}}
-	<div class="row-fluid">
-	<tr>
-	<td>{{sample}}</td>
-	<td>{{site}}</td>
-	<td>{{Histology}}</td>
-	</tr>
-	</div>
-	{{else}}
-	<div class="todo-item empty">
-	No clinical events yet.
-	</div>
-	{{/each}}
-	</table> -->
-</div>
+    <div id="clinical">
+        {{> SamplePieChartsTemplate}}
+    </div>
 </template>
 
